@@ -14,7 +14,7 @@ namespace DapperStudy.Infra.Persistence.Repositories.Generico
         where Tid : IEquatable<Tid>
     {
         protected IDbConnection _connection;
-        protected readonly string connectionString = "";
+        protected readonly string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=DapperDb;Integrated Security=True;";
 
         public RepositorioGenerico()
         {
