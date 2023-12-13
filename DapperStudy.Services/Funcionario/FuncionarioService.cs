@@ -20,15 +20,15 @@ namespace DapperStudy.Services.Funcionario
             {
                 var funcionarioModel = _funcionarioRepository.GetById(id);
                 if (funcionarioModel == null)
-                    return ResponseBase<FuncionarioResponse>.CreateError(404);
+                    return ResponseBase<FuncionarioResponse>.CreateBadRequest();
 
                 var funcionarioResponse = new FuncionarioResponse(funcionarioModel);
 
-                return ResponseBase<FuncionarioResponse>.CreateSuccess(funcionarioResponse, 200);
+                return ResponseBase<FuncionarioResponse>.CreateSuccess(funcionarioResponse);
             }
             catch
             {
-                return ResponseBase<FuncionarioResponse>.CreateError(500);
+                return ResponseBase<FuncionarioResponse>.CreateInternalServerError();
             }
         }
     }

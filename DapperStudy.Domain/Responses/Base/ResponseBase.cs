@@ -32,9 +32,13 @@
             }
         }
 
-        public static ResponseBase<T> CreateSuccess(T response, int statusCode) => new(response, statusCode);
+        public static ResponseBase<T> CreateSuccess(T response) => new(response, 200);
 
-        public static ResponseBase<T> CreateError(int statusCode) => new(statusCode);
+        public static ResponseBase<T> CreateBadRequest() => new(404);
+
+        public static ResponseBase<T> CreateInternalServerError() => new(500);
+
+        public static ResponseBase<T> Create(int statusCode) => new(statusCode);
 
         public ResponseBase<T> AddMessage(string message)
         {
