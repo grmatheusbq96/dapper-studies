@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\DapperStudy.Infra.Persistence\DapperStudy.Infra.Persistence.csproj" />
+    <ProjectReference Include="..\DapperStudy.Services\DapperStudy.Services.csproj" />
   </ItemGroup>
 
 </Project>

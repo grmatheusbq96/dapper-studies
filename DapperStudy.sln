@@ -5,8 +5,6 @@ VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperStudy.Api", "DapperStudy.Api\DapperStudy.Api.csproj", "{295B9E67-6141-4757-B5F1-31305DB3E872}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperStudy.Infra.Persistence", "DapperStudy.Infra.Persistence\DapperStudy.Infra.Persistence.csproj", "{5685484D-DB4D-46F0-BF1E-387498A0E21C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{59E8613B-0A83-47D9-874F-08EFBF945F1D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{BCC2BE9E-79FB-4C98-B372-7E56404E8EDB}"
@@ -14,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperStudy.Services", "DapperStudy.Services\DapperStudy.Services.csproj", "{8BECFDF8-60E4-454E-84C0-4B772E04ABF0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperStudy.Domain", "DapperStudy.Domain\DapperStudy.Domain.csproj", "{90F1C6AD-BA7E-4128-A97F-DF411E21111B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperStudy.Infra.Persistence", "DapperStudy.Infra.Persistence\DapperStudy.Infra.Persistence.csproj", "{822D6177-1B22-4D50-B7D2-253415FAFD70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,6 @@ Global
 		{295B9E67-6141-4757-B5F1-31305DB3E872}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{295B9E67-6141-4757-B5F1-31305DB3E872}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{295B9E67-6141-4757-B5F1-31305DB3E872}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5685484D-DB4D-46F0-BF1E-387498A0E21C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5685484D-DB4D-46F0-BF1E-387498A0E21C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5685484D-DB4D-46F0-BF1E-387498A0E21C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5685484D-DB4D-46F0-BF1E-387498A0E21C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8BECFDF8-60E4-454E-84C0-4B772E04ABF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8BECFDF8-60E4-454E-84C0-4B772E04ABF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BECFDF8-60E4-454E-84C0-4B772E04ABF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,6 +33,10 @@ Global
 		{90F1C6AD-BA7E-4128-A97F-DF411E21111B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90F1C6AD-BA7E-4128-A97F-DF411E21111B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90F1C6AD-BA7E-4128-A97F-DF411E21111B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{822D6177-1B22-4D50-B7D2-253415FAFD70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{822D6177-1B22-4D50-B7D2-253415FAFD70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{822D6177-1B22-4D50-B7D2-253415FAFD70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{822D6177-1B22-4D50-B7D2-253415FAFD70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
