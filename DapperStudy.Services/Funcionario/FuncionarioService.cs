@@ -20,18 +20,15 @@ namespace DapperStudy.Services.Funcionario
             {
                 var funcionarioModel = _funcionarioRepository.GetById(id);
                 if (funcionarioModel == null)
-                    return ResponseBase<FuncionarioResponse>.CreateError(404)
-                        .AddMessage("Cliente não encontrado.");
+                    return ResponseBase<FuncionarioResponse>.CreateError(404);
 
                 var funcionarioResponse = new FuncionarioResponse(funcionarioModel);
 
-                return ResponseBase<FuncionarioResponse>.CreateSuccess(funcionarioResponse, 200)
-                    .AddMessage("Mensagem de sucesso!");
+                return ResponseBase<FuncionarioResponse>.CreateSuccess(funcionarioResponse, 200);
             }
-            catch (Exception)
+            catch
             {
-                return ResponseBase<FuncionarioResponse>.CreateError(500)
-                        .AddMessage("Ocorreu um erro interno.");
+                return ResponseBase<FuncionarioResponse>.CreateError(500);
             }
         }
     }
