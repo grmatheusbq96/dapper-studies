@@ -1,7 +1,7 @@
 ﻿using DapperStudy.Domain.Interfaces.Repositories;
 using DapperStudy.Domain.Interfaces.Services;
-using DapperStudy.Domain.Models;
 using DapperStudy.Domain.Responses;
+using DapperStudy.Domain.Responses.Base;
 
 namespace DapperStudy.Services.Funcionario
 {
@@ -14,11 +14,25 @@ namespace DapperStudy.Services.Funcionario
             _funcionarioRepository = funcionarioRepository;
         }
 
-        public FuncionarioResponse<FuncionarioModel> BuscarFuncionarioPorId(int id)
+        public ResponseBase<FuncionarioResponse> BuscarFuncionarioPorId(int id)
         {
-            var funcionario = _funcionarioRepository.GetById(id);
+            try
+            {
+                var funcionarioModel = _funcionarioRepository.GetById(id);
+                if (funcionarioModel == null)
+                    return ResponseBase<FuncionarioResponse>.CreateError(404)
+                        .AddMessage("Cliente não encontrado.");
 
-            return new FuncionarioResponse<FuncionarioModel>(funcionario);
+                var funcionarioResponse = new FuncionarioResponse(funcionarioModel);
+
+                return ResponseBase<FuncionarioResponse>.CreateSuccess(funcionarioResponse, 200)
+                    .AddMessage("Mensagem de sucesso!");
+            }
+            catch (Exception)
+            {
+                return ResponseBase<FuncionarioResponse>.CreateError(500)
+                        .AddMessage("Ocorreu um erro interno.");
+            }
         }
     }
 }

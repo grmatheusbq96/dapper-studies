@@ -1,5 +1,8 @@
 ﻿using DapperStudy.Domain.Interfaces.Services;
+using DapperStudy.Domain.Responses;
+using DapperStudy.Domain.Responses.Base;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace DapperStudy.Api.Controllers
 {
@@ -14,32 +17,13 @@ namespace DapperStudy.Api.Controllers
             _funcionarioService = funcionarioService;
         }
 
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
-
+        [ProducesResponseType(typeof(ResponseBase<FuncionarioResponse>), (int)HttpStatusCode.OK)]
         [HttpGet("BuscarPorId")]
         public IActionResult BuscarFuncionarioPorId([FromQuery] int id)
         {
             var retorno = _funcionarioService.BuscarFuncionarioPorId(id);
-            return Ok();
+
+            return StatusCode(retorno.GetStatusCode(), retorno.Data);
         }
-
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
-
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
-
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
     }
 }

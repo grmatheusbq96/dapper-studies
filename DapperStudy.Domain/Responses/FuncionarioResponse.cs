@@ -2,8 +2,7 @@
 
 namespace DapperStudy.Domain.Responses
 {
-    public class FuncionarioResponse<T>
-        where T : FuncionarioModel
+    public class FuncionarioResponse
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -11,7 +10,7 @@ namespace DapperStudy.Domain.Responses
         public string Documento { get; set; }
         public decimal Salario { get; set; }
 
-        public FuncionarioResponse(T model)
+        public FuncionarioResponse(FuncionarioModel model)
         {
             Id = model.Id;
             Nome = model.Nome;
