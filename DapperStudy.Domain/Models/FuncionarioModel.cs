@@ -16,6 +16,9 @@ namespace DapperStudy.Domain.Models
         [Column("Idade")]
         public int Idade { get; set; }
 
+        [Column("Documento")]
+        public string Documento { get; set; }
+
         [Column("Salario")]
         public decimal Salario { get; set; }
     }

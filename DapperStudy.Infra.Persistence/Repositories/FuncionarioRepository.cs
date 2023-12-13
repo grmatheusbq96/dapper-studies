@@ -4,7 +4,7 @@ using DapperStudy.Infra.Persistence.Repositories.Generico;
 
 namespace DapperStudy.Infra.Persistence.Repositories
 {
-    public class FuncionarioRepository : RepositorioGenerico<FuncionarioModel, int>, IFuncionarioRepository
+    public class FuncionarioRepository : RepositorioGenerico<FuncionarioResponse, int>, IFuncionarioRepository
     {
     }
 }

@@ -23,7 +23,8 @@ namespace DapperStudy.Api.Controllers
         [HttpGet("BuscarPorId")]
         public IActionResult BuscarFuncionarioPorId([FromQuery] int id)
         {
-            return Ok(_funcionarioService.BuscarFuncionarioPorId(id));
+            var retorno = _funcionarioService.BuscarFuncionarioPorId(id);
+            return Ok();
         }
 
         //[HttpPost]

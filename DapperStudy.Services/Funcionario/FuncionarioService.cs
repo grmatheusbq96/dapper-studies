@@ -1,6 +1,7 @@
 ﻿using DapperStudy.Domain.Interfaces.Repositories;
 using DapperStudy.Domain.Interfaces.Services;
 using DapperStudy.Domain.Models;
+using DapperStudy.Domain.Responses;
 
 namespace DapperStudy.Services.Funcionario
 {
@@ -13,11 +14,11 @@ namespace DapperStudy.Services.Funcionario
             _funcionarioRepository = funcionarioRepository;
         }
 
-        public FuncionarioModel BuscarFuncionarioPorId(int id)
+        public FuncionarioResponse<FuncionarioModel> BuscarFuncionarioPorId(int id)
         {
             var funcionario = _funcionarioRepository.GetById(id);
 
-            return funcionario;
+            return new FuncionarioResponse<FuncionarioModel>(funcionario);
         }
     }
 }

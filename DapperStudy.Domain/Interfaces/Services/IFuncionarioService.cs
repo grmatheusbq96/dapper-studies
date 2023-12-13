@@ -1,9 +1,10 @@
 ﻿using DapperStudy.Domain.Models;
+using DapperStudy.Domain.Responses;
 
 namespace DapperStudy.Domain.Interfaces.Services
 {
     public interface IFuncionarioService
     {
-        FuncionarioModel BuscarFuncionarioPorId(int id);
+        FuncionarioResponse<FuncionarioModel> BuscarFuncionarioPorId(int id);
     }
 }
