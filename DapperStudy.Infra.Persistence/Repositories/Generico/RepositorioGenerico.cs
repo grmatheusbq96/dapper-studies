@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DapperStudy.Domain.Interfaces.Repositories.Generico;
+using Microsoft.Extensions.Configuration;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
@@ -13,12 +14,15 @@ namespace DapperStudy.Infra.Persistence.Repositories.Generico
         where TEntity : class
         where Tid : IEquatable<Tid>
     {
-        protected IDbConnection _connection;
-        protected readonly string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=DapperDb;Integrated Security=True;";
+        private readonly string ConnectionString;
+        private readonly IConfiguration Configuration;
 
-        public RepositorioGenerico()
+        protected IDbConnection Connection => new SqlConnection(ConnectionString);
+
+        public RepositorioGenerico(IConfiguration configuration, string dbName)
         {
-            _connection = new SqlConnection(connectionString);
+            Configuration = configuration;
+            ConnectionString = Configuration.GetConnectionString(dbName);
         }
 
         public bool Add(TEntity entity)
@@ -30,7 +34,7 @@ namespace DapperStudy.Infra.Persistence.Repositories.Generico
                 var valores = ObterValores(excludeKey: true);
                 var query = $"INSERT INTO {nomeTabela} ({colunas}) VALUES ({valores})";
 
-                return _connection.Execute(query, entity) > 0;
+                return Connection.Execute(query, entity) > 0;
             }
             catch
             {
@@ -47,7 +51,7 @@ namespace DapperStudy.Infra.Persistence.Repositories.Generico
                 var valorChave = ObterValorChave();
                 var query = $"DELETE FROM {nomeTabela} WHERE {colunaChave} = @{valorChave}";
 
-                return _connection.Execute(query, entity) > 0;
+                return Connection.Execute(query, entity) > 0;
             }
             catch
             {
@@ -62,7 +66,7 @@ namespace DapperStudy.Infra.Persistence.Repositories.Generico
                 var nomeTabela = ObterNomeTabela();
                 var query = $"SELECT * FROM {nomeTabela}";
 
-                return _connection.Query<TEntity>(query);
+                return Connection.Query<TEntity>(query);
             }
             catch
             {
@@ -78,7 +82,7 @@ namespace DapperStudy.Infra.Persistence.Repositories.Generico
                 var colunaChave = ObterColunaChave();
                 var query = $"SELECT * FROM {nomeTabela} WHERE {colunaChave} = '{Id}'";
 
-                return _connection.Query<TEntity>(query).FirstOrDefault();
+                return Connection.Query<TEntity>(query).FirstOrDefault();
             }
             catch
             {
@@ -111,7 +115,7 @@ namespace DapperStudy.Infra.Persistence.Repositories.Generico
 
                 query.Append($" WHERE {colunaChave} = @{valorChave}");
 
-                return _connection.Execute(query.ToString(), entity) > 0;
+                return Connection.Execute(query.ToString(), entity) > 0;
             }
             catch
             {
